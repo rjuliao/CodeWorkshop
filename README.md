@@ -44,4 +44,20 @@ node server.js
 
 Abre tu navegador web y dirígete a `http://localhost:3000`. Deberías ver el mensaje "Hello, world!".
 
+## Actualizaciones del Proyecto
+
+- Se ha implementado middleware para aceptar mensajes JSON, lo que permite manejar cuerpos de solicitud en formato JSON.
+- Las rutas relacionadas con `/doctors` se han modularizado en un archivo separado: `doctors/doctors.js` para mejorar la organización del código.
+- Se han agregado datos adicionales en el directorio `/data`, incluyendo `doctors.json`, `medical_fields.json`, y `doctor_info.json`, proporcionando una estructura de datos más rica para nuestras operaciones.
+
+## Nuevas funcionalidades del API
+
+1. **Obtener todos los doctores**
+
+   `GET /doctors/` devuelve una lista completa de todos los doctores disponibles. Esta ruta responde con un JSON que incluye todos los registros de doctores.
+
+2. **Obtener doctores por nombre de especialidad médica**
+
+   `GET /doctors/{nombre_especialidad}` permite filtrar y obtener doctores según el nombre de la especialidad médica proporcionada. Asegúrate de utilizar el nombre correcto tal como está registrado en el archivo `medical_fields.json`. Devuelve un error 404 si la especialidad médica no es encontrada.
+
 ---
