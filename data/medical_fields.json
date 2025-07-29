@@ -1,0 +1,82 @@
+[
+  {
+    "id": "CARD",
+    "name": "Cardiology"
+  },
+  {
+    "id": "PED",
+    "name": "Pediatrics"
+  },
+  {
+    "id": "NEUR",
+    "name": "Neurology"
+  },
+  {
+    "id": "DERM",
+    "name": "Dermatology"
+  },
+  {
+    "id": "ORTHO",
+    "name": "Orthopedics"
+  },
+  {
+    "id": "ONCO",
+    "name": "Oncology"
+  },
+  {
+    "id": "PSYCH",
+    "name": "Psychiatry"
+  },
+  {
+    "id": "GASTRO",
+    "name": "Gastroenterology"
+  },
+  {
+    "id": "ENDO",
+    "name": "Endocrinology"
+  },
+  {
+    "id": "OPHTH",
+    "name": "Ophthalmology"
+  },
+  {
+    "id": "URO",
+    "name": "Urology"
+  },
+  {
+    "id": "ALL",
+    "name": "Allergy and Immunology"
+  },
+  {
+    "id": "SURG",
+    "name": "Surgery"
+  },
+  {
+    "id": "ORTHO",
+    "name": "Orthodontics"
+  },
+  {
+    "id": "ANESTH",
+    "name": "Anesthesiology"
+  },
+  {
+    "id": "RADIO",
+    "name": "Radiology"
+  },
+  {
+    "id": "PATH",
+    "name": "Pathology"
+  },
+  {
+    "id": "ENT",
+    "name": "Otolaryngology"
+  },
+  {
+    "id": "NEPH",
+    "name": "Nephrology"
+  },
+  {
+    "id": "GERI",
+    "name": "Geriatrics"
+  }
+]
