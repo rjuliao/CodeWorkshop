@@ -13,7 +13,7 @@ Este es un proyecto básico de Node.js que utiliza Express para crear una API si
    Clona este repositorio en tu máquina local usando el siguiente comando:
 
    ```bash
-   git clone [<URL_DEL_REPOSITORIO>](https://github.com/rjuliao/CodeWorkshop)
+   git clone https://github.com/rjuliao/CodeWorkshop
    ```
 
 2. **Navegar al directorio del proyecto**
