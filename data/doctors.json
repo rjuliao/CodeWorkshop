@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1a2b3c",
+    "name": "Juan Pérez",
+    "medical_field": "Cardiologist",
+    "address": "Calle 123 #45-67",
+    "city": "Bogotá"
+  },
+  {
+    "id": "2b3c4d",
+    "name": "María Gómez",
+    "medical_field": "Pediatrician",
+    "address": "Carrera 8 #12-34",
+    "city": "Medellín"
+  },
+  {
+    "id": "3c4d5e",
+    "name": "Carlos Ruiz",
+    "medical_field": "Neurologist",
+    "address": "Avenida 9 #56-78",
+    "city": "Cali"
+  },
+  {
+    "id": "4d5e6f",
+    "name": "Ana Torres",
+    "medical_field": "Dermatologist",
+    "address": "Diagonal 4 #22-55",
+    "city": "Barranquilla"
+  },
+  {
+    "id": "5e6f7g",
+    "name": "Luis Martínez",
+    "medical_field": "Orthopedic",
+    "address": "Transversal 6 #33-44",
+    "city": "Cartagena"
+  },
+  {
+    "id": "6f7g8h",
+    "name": "Laura Herrera",
+    "medical_field": "Oncologist",
+    "address": "Circular 7 #88-99",
+    "city": "Bucaramanga"
+  },
+  {
+    "id": "7g8h9i",
+    "name": "Felipe Rojas",
+    "medical_field": "Psychiatrist",
+    "address": "Calle 45 #76-87",
+    "city": "Manizales"
+  },
+  {
+    "id": "8h9i0j",
+    "name": "Camila Fernández",
+    "medical_field": "Gastroenterologist",
+    "address": "Carrera 1 #11-22",
+    "city": "Pereira"
+  },
+  {
+    "id": "9i0j1k",
+    "name": "Andrés López",
+    "medical_field": "Endocrinologist",
+    "address": "Avenida 23 #56-78",
+    "city": "Santa Marta"
+  },
+  {
+    "id": "0j1k2l",
+    "name": "Paola Morales",
+    "medical_field": "Ophthalmologist",
+    "address": "Carrera 10 #44-55",
+    "city": "Villavicencio"
+  },
+  {
+    "id": "1k2l3m",
+    "name": "Jorge Delgado",
+    "medical_field": "Urologist",
+    "address": "Calle 50 #20-30",
+    "city": "Bogotá"
+  },
+  {
+    "id": "2l3m4n",
+    "name": "Sofía López",
+    "medical_field": "Allergist",
+    "address": "Carrera 4 #32-45",
+    "city": "Medellín"
+  },
+  {
+    "id": "3m4n5o",
+    "name": "Miguel Ángel",
+    "medical_field": "Surgeon",
+    "address": "Avenida 10 #50-60",
+    "city": "Cali"
+  },
+  {
+    "id": "4n5o6p",
+    "name": "Lucía Ramírez",
+    "medical_field": "Orthodontist",
+    "address": "Diagonal 23 #65-79",
+    "city": "Barranquilla"
+  },
+  {
+    "id": "5o6p7q",
+    "name": "Roberto Sánchez",
+    "medical_field": "Anesthesiologist",
+    "address": "Transversal 1 #20-22",
+    "city": "Cartagena"
+  },
+  {
+    "id": "6p7q8r",
+    "name": "Isabella Díaz",
+    "medical_field": "Psychiatrist",
+    "address": "Circular 10 #15-25",
+    "city": "Bucaramanga"
+  },
+  {
+    "id": "7q8r9s",
+    "name": "Daniel Restrepo",
+    "medical_field": "Radiologist",
+    "address": "Calle 80 #10-11",
+    "city": "Manizales"
+  },
+  {
+    "id": "8r9s0t",
+    "name": "Valentina Moreno",
+    "medical_field": "Pathologist",
+    "address": "Carrera 9 #30-31",
+    "city": "Pereira"
+  },
+  {
+    "id": "9s0t1u",
+    "name": "Tomás García",
+    "medical_field": "Cardiologist",
+    "address": "Avenida 45 #1-2",
+    "city": "Santa Marta"
+  },
+  {
+    "id": "0t1u2v",
+    "name": "Gabriela Pardo",
+    "medical_field": "Dermatologist",
+    "address": "Carrera 12 #34-56",
+    "city": "Villavicencio"
+  }
+]
