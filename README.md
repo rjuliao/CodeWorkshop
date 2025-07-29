@@ -21,10 +21,11 @@ Este es un proyecto básico de Node.js que utiliza Express para crear una API si
    Entra en la carpeta del proyecto:
 
    ```bash
-   cd <NOMBRE_DEL_DIRECTORIO>
+   CodeWorkshop
    ```
-
-3. **Instalar las dependencias**
+   Abre VisualStudio Code
+   
+4. **Instalar las dependencias**
 
    Ejecuta el siguiente comando para instalar las dependencias necesarias:
 
