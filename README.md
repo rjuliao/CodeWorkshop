@@ -37,12 +37,12 @@ Este es un proyecto básico de Node.js que utiliza Express para crear una API si
 Para iniciar el servidor, ejecuta el siguiente comando:
 
 ```bash
-node server.js
+node index.js
 ```
 
 ## Probar la API
 
-Abre tu navegador web y dirígete a `http://localhost:3000`. Deberías ver el mensaje "Hello, world!".
+Abre tu navegador web y dirígete a `http://localhost:3000/doctors`.
 
 ## Actualizaciones del Proyecto
 
