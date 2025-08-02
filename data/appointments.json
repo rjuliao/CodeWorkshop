@@ -1,0 +1,72 @@
+[
+  {
+    "id": "a1",
+    "doctor_id": "1a2b3c",
+    "scheduled_time": "2025-08-10T09:00:00",
+    "patient_id": "p1001",
+    "patient_email": "maria.smith@example.com"
+  },
+  {
+    "id": "a2",
+    "doctor_id": "2b3c4d",
+    "scheduled_time": "2025-08-10T10:30:00",
+    "patient_id": "p1002",
+    "patient_email": "john.doe@example.com"
+  },
+  {
+    "id": "a3",
+    "doctor_id": "3c4d5e",
+    "scheduled_time": "2025-08-11T11:00:00",
+    "patient_id": "p1003",
+    "patient_email": "ana.garcia@example.com"
+  },
+  {
+    "id": "a4",
+    "doctor_id": "1a2b3c",
+    "scheduled_time": "2025-08-12T14:00:00",
+    "patient_id": "p1004",
+    "patient_email": "carlos.martinez@example.com"
+  },
+  {
+    "id": "a5",
+    "doctor_id": "4d5e6f",
+    "scheduled_time": "2025-08-13T15:30:00",
+    "patient_id": "p1005",
+    "patient_email": "sofia.lopez@example.com"
+  },
+  {
+    "id": "a6",
+    "doctor_id": "2b3c4d",
+    "scheduled_time": "2025-08-14T09:00:00",
+    "patient_id": "p1006",
+    "patient_email": "lucas.torres@example.com"
+  },
+  {
+    "id": "a7",
+    "doctor_id": "3c4d5e",
+    "scheduled_time": "2025-08-15T10:00:00",
+    "patient_id": "p1007",
+    "patient_email": "valentina.moreno@example.com"
+  },
+  {
+    "id": "a8",
+    "doctor_id": "4d5e6f",
+    "scheduled_time": "2025-08-16T11:30:00",
+    "patient_id": "p1008",
+    "patient_email": "daniel.restrepo@example.com"
+  },
+  {
+    "id": "a9",
+    "doctor_id": "5e6f7g",
+    "scheduled_time": "2025-08-17T13:00:00",
+    "patient_id": "p1009",
+    "patient_email": "isabella.diaz@example.com"
+  },
+  {
+    "id": "a10",
+    "doctor_id": "1a2b3c",
+    "scheduled_time": "2025-08-18T15:00:00",
+    "patient_id": "p1010",
+    "patient_email": "miguel.angel@example.com"
+  }
+]
