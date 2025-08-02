@@ -59,4 +59,60 @@ router.get("/:medical_field_name", (req, res) => {
   res.json(filteredDoctors);
 });
 
+// Endpoint to get doctor's availability by doctor ID
+router.get("/availability/:id", (req, res) => {
+  const doctorId = req.params.id;
+  const doctorInfoData = getDoctorInfoData();
+  const appointmentsData = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../data/appointments.json"))
+  );
+
+  // Find doctor info
+  const doctorInfo = doctorInfoData.find((info) => info.doctor_id === doctorId);
+  if (!doctorInfo) {
+    res.status(404).json({ error: "Doctor not found" });
+    return;
+  }
+
+  // Get all appointments for this doctor
+  const doctorAppointments = appointmentsData.filter(
+    (appt) => appt.doctor_id === doctorId
+  );
+
+  // Build availability by weekday
+  const availability = {};
+  for (const [day, hours] of Object.entries(doctorInfo.schedule)) {
+    if (hours === "Closed") {
+      availability[day] = [];
+      continue;
+    }
+    // Parse start and end time
+    const [start, end] = hours
+      .replace(/am|pm/g, "")
+      .split("-")
+      .map((t) => t.trim());
+    // Generate hourly slots (simple example: every full hour)
+    const startHour = parseInt(start.split(":")[0]);
+    const endHour = parseInt(end.split(":")[0]);
+    let slots = [];
+    for (let h = startHour; h < endHour; h++) {
+      slots.push(`${h}:00`);
+    }
+    // Remove slots that are already booked
+    const bookedSlots = doctorAppointments
+      .filter((appt) => {
+        const apptDate = new Date(appt.scheduled_time);
+        const apptDay = apptDate.toLocaleString("en-US", { weekday: "long" });
+        return apptDay === day;
+      })
+      .map((appt) => {
+        const apptDate = new Date(appt.scheduled_time);
+        return `${apptDate.getHours()}:00`;
+      });
+    availability[day] = slots.filter((slot) => !bookedSlots.includes(slot));
+  }
+
+  res.json({ doctor_id: doctorId, availability });
+});
+
 module.exports = router;
