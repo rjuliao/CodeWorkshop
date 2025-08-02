@@ -115,4 +115,90 @@ router.get("/availability/:id", (req, res) => {
   res.json({ doctor_id: doctorId, availability });
 });
 
+// Endpoint to validate time availability for a doctor on a specific day
+router.get("/availability/id=:doctorId/day=:dayOfWeek", (req, res) => {
+  const doctorId = req.params.doctorId;
+  const dayOfWeek =
+    req.params.dayOfWeek.charAt(0).toUpperCase() +
+    req.params.dayOfWeek.slice(1).toLowerCase();
+  const doctorInfoData = getDoctorInfoData();
+  const appointmentsData = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../data/appointments.json"))
+  );
+
+  // Find doctor info
+  const doctorInfo = doctorInfoData.find((info) => info.doctor_id === doctorId);
+  console.log("Doctor Info:", doctorInfo);
+  if (!doctorInfo) {
+    console.log("Doctor not found for ID:", doctorId);
+    res.status(404).json({ error: "Doctor not found" });
+    return;
+  }
+
+  // Get schedule for the specific day
+  const hours = doctorInfo.schedule[dayOfWeek];
+  console.log(`Schedule for ${dayOfWeek}:`, hours);
+  if (!hours || hours === "Closed") {
+    console.log(`Doctor ${doctorId} is not available on ${dayOfWeek}`);
+    res.json({ doctor_id: doctorId, day: dayOfWeek, available_slots: [] });
+    return;
+  }
+
+  // Parse start and end time
+  const [start, end] = hours
+    .replace(/am|pm/g, "")
+    .split("-")
+    .map((t) => t.trim());
+  const startParts = start.split(":");
+  const endParts = end.split(":");
+  let startHour = parseInt(startParts[0]);
+  let startMinute = startParts[1] ? parseInt(startParts[1]) : 0;
+  let endHour = parseInt(endParts[0]);
+  let endMinute = endParts[1] ? parseInt(endParts[1]) : 0;
+
+  // Calculate total minutes for start and end
+  const startTotalMinutes = startHour * 60 + startMinute;
+  const endTotalMinutes = endHour * 60 + endMinute;
+
+  // Generate 30-minute slots
+  let slots = [];
+  for (let mins = startTotalMinutes; mins < endTotalMinutes; mins += 30) {
+    const hour = Math.floor(mins / 60);
+    const minute = mins % 60;
+    const slot = `${hour.toString().padStart(2, "0")}:${minute
+      .toString()
+      .padStart(2, "0")}`;
+    slots.push(slot);
+  }
+  console.log("Generated slots:", slots);
+
+  // Remove slots that are already booked
+  const doctorAppointments = appointmentsData.filter(
+    (appt) => appt.doctor_id === doctorId
+  );
+  const bookedSlots = doctorAppointments
+    .filter((appt) => {
+      const apptDate = new Date(appt.scheduled_time);
+      const apptDay = apptDate.toLocaleString("en-US", { weekday: "long" });
+      return apptDay === dayOfWeek;
+    })
+    .map((appt) => {
+      const apptDate = new Date(appt.scheduled_time);
+      const hour = apptDate.getHours();
+      const minute = apptDate.getMinutes();
+      return `${hour.toString().padStart(2, "0")}:${minute
+        .toString()
+        .padStart(2, "0")}`;
+    });
+  console.log("Booked slots:", bookedSlots);
+  const availableSlots = slots.filter((slot) => !bookedSlots.includes(slot));
+  console.log("Available slots:", availableSlots);
+
+  res.json({
+    doctor_id: doctorId,
+    day: dayOfWeek,
+    available_slots: availableSlots,
+  });
+});
+
 module.exports = router;
