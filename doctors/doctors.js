@@ -116,11 +116,26 @@ router.get("/availability/:id", (req, res) => {
 });
 
 // Endpoint to validate time availability for a doctor on a specific day
-router.get("/availability/id=:doctorId/day=:dayOfWeek", (req, res) => {
+router.get("/availability/id=:doctorId/date=:date", (req, res) => {
   const doctorId = req.params.doctorId;
-  const dayOfWeek =
-    req.params.dayOfWeek.charAt(0).toUpperCase() +
-    req.params.dayOfWeek.slice(1).toLowerCase();
+  const dateStr = req.params.date;
+  // Validate date format DD-MM-YYYY
+  const dateRegex = /^\d{2}-\d{2}-\d{4}$/;
+  if (!dateRegex.test(dateStr)) {
+    res.status(400).json({ error: "Date must be in DD-MM-YYYY format" });
+    return;
+  }
+  // Parse date
+  const [day, month, year] = dateStr.split("-").map(Number);
+  const dateObj = new Date(year, month - 1, day);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  if (dateObj < today) {
+    res.status(400).json({ error: "Date must be today or in the future" });
+    return;
+  }
+  // Get weekday name
+  const weekday = dateObj.toLocaleString("en-US", { weekday: "long" });
   const doctorInfoData = getDoctorInfoData();
   const appointmentsData = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../data/appointments.json"))
@@ -135,12 +150,12 @@ router.get("/availability/id=:doctorId/day=:dayOfWeek", (req, res) => {
     return;
   }
 
-  // Get schedule for the specific day
-  const hours = doctorInfo.schedule[dayOfWeek];
-  console.log(`Schedule for ${dayOfWeek}:`, hours);
+  // Get schedule for the specific weekday
+  const hours = doctorInfo.schedule[weekday];
+  console.log(`Schedule for ${weekday}:`, hours);
   if (!hours || hours === "Closed") {
-    console.log(`Doctor ${doctorId} is not available on ${dayOfWeek}`);
-    res.json({ doctor_id: doctorId, day: dayOfWeek, available_slots: [] });
+    console.log(`Doctor ${doctorId} is not available on ${weekday}`);
+    res.json({ doctor_id: doctorId, date: dateStr, available_slots: [] });
     return;
   }
 
@@ -172,20 +187,31 @@ router.get("/availability/id=:doctorId/day=:dayOfWeek", (req, res) => {
   }
   console.log("Generated slots:", slots);
 
-  // Remove slots that are already booked
+  // Remove slots that are already booked for this doctor and date
   const doctorAppointments = appointmentsData.filter(
     (appt) => appt.doctor_id === doctorId
   );
   const bookedSlots = doctorAppointments
     .filter((appt) => {
-      const apptDate = new Date(appt.scheduled_time);
-      const apptDay = apptDate.toLocaleString("en-US", { weekday: "long" });
-      return apptDay === dayOfWeek;
+      // Compare scheduled_date in DD/MM/YYYY format
+      if (!appt.scheduled_date) return false;
+      const [apptDay, apptMonth, apptYear] = appt.scheduled_date
+        .split("/")
+        .map(Number);
+      return apptDay === day && apptMonth === month && apptYear === year;
     })
     .map((appt) => {
-      const apptDate = new Date(appt.scheduled_time);
-      const hour = apptDate.getHours();
-      const minute = apptDate.getMinutes();
+      // Parse scheduled_time, get start time
+      const timeStr = appt.scheduled_time.split("-")[0].trim();
+      let hour, minute;
+      if (timeStr.includes(":")) {
+        [hour, minute] = timeStr.replace(/am|pm/g, "").split(":").map(Number);
+      } else {
+        hour = parseInt(timeStr);
+        minute = 0;
+      }
+      // Handle am/pm
+      if (timeStr.includes("pm") && hour < 12) hour += 12;
       return `${hour.toString().padStart(2, "0")}:${minute
         .toString()
         .padStart(2, "0")}`;
@@ -196,7 +222,7 @@ router.get("/availability/id=:doctorId/day=:dayOfWeek", (req, res) => {
 
   res.json({
     doctor_id: doctorId,
-    day: dayOfWeek,
+    date: dateStr,
     available_slots: availableSlots,
   });
 });
