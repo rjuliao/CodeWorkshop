@@ -2,70 +2,80 @@
   {
     "id": "a1",
     "doctor_id": "1a2b3c",
-    "scheduled_time": "2025-08-10T09:00:00",
+    "scheduled_date": "10/08/2025",
+    "scheduled_time": "9am - 9:30am",
     "patient_id": "p1001",
     "patient_email": "maria.smith@example.com"
   },
   {
     "id": "a2",
     "doctor_id": "2b3c4d",
-    "scheduled_time": "2025-08-10T10:30:00",
+    "scheduled_date": "10/08/2025",
+    "scheduled_time": "10:30am - 11am",
     "patient_id": "p1002",
     "patient_email": "john.doe@example.com"
   },
   {
     "id": "a3",
     "doctor_id": "3c4d5e",
-    "scheduled_time": "2025-08-11T11:00:00",
+    "scheduled_date": "11/08/2025",
+    "scheduled_time": "11am - 11:30am",
     "patient_id": "p1003",
     "patient_email": "ana.garcia@example.com"
   },
   {
     "id": "a4",
     "doctor_id": "1a2b3c",
-    "scheduled_time": "2025-08-12T14:00:00",
+    "scheduled_date": "12/08/2025",
+    "scheduled_time": "2pm - 2:30pm",
     "patient_id": "p1004",
     "patient_email": "carlos.martinez@example.com"
   },
   {
     "id": "a5",
     "doctor_id": "4d5e6f",
-    "scheduled_time": "2025-08-13T15:30:00",
+    "scheduled_date": "13/08/2025",
+    "scheduled_time": "3:30pm - 4pm",
     "patient_id": "p1005",
     "patient_email": "sofia.lopez@example.com"
   },
   {
     "id": "a6",
     "doctor_id": "2b3c4d",
-    "scheduled_time": "2025-08-14T09:00:00",
+    "scheduled_date": "14/08/2025",
+    "scheduled_time": "9am - 9:30am",
     "patient_id": "p1006",
     "patient_email": "lucas.torres@example.com"
   },
   {
     "id": "a7",
     "doctor_id": "3c4d5e",
-    "scheduled_time": "2025-08-15T10:00:00",
+    "scheduled_date": "15/08/2025",
+    "scheduled_time": "10am - 10:30am",
     "patient_id": "p1007",
     "patient_email": "valentina.moreno@example.com"
   },
   {
     "id": "a8",
     "doctor_id": "4d5e6f",
-    "scheduled_time": "2025-08-16T11:30:00",
+    "scheduled_date": "16/08/2025",
+    "scheduled_time": "11:30am - 12pm",
     "patient_id": "p1008",
     "patient_email": "daniel.restrepo@example.com"
   },
   {
     "id": "a9",
     "doctor_id": "5e6f7g",
-    "scheduled_time": "2025-08-17T13:00:00",
+    "scheduled_date": "17/08/2025",
+    "scheduled_time": "1pm - 1:30pm",
     "patient_id": "p1009",
     "patient_email": "isabella.diaz@example.com"
   },
   {
     "id": "a10",
     "doctor_id": "1a2b3c",
-    "scheduled_time": "2025-08-18T15:00:00",
+    "scheduled_date": "18/08/2025",
+    "scheduled_time": "3pm - 3:30pm",
     "patient_id": "p1010",
     "patient_email": "miguel.angel@example.com"
   }
