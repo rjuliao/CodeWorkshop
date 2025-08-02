@@ -4,11 +4,11 @@
     "doctor_id": "1a2b3c",
     "insurance_center": "EPS Sanitas",
     "schedule": {
-      "Monday": "9am - 5pm",
-      "Tuesday": "10am - 6pm",
-      "Wednesday": "9am - 5pm",
-      "Thursday": "10am - 6pm",
-      "Friday": "9am - 3pm",
+      "Monday": "09:00 - 17:00",
+      "Tuesday": "10:00 - 18:00",
+      "Wednesday": "09:00 - 17:00",
+      "Thursday": "10:00 - 18:00",
+      "Friday": "09:00 - 15:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -18,11 +18,11 @@
     "doctor_id": "2b3c4d",
     "insurance_center": "Coomeva",
     "schedule": {
-      "Monday": "8am - 4pm",
-      "Tuesday": "8am - 4pm",
-      "Wednesday": "8am - 12pm",
-      "Thursday": "8am - 4pm",
-      "Friday": "8am - 2pm",
+      "Monday": "08:00 - 16:00",
+      "Tuesday": "08:00 - 16:00",
+      "Wednesday": "08:00 - 12:00",
+      "Thursday": "08:00 - 16:00",
+      "Friday": "08:00 - 14:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -32,11 +32,11 @@
     "doctor_id": "3c4d5e",
     "insurance_center": "Sura",
     "schedule": {
-      "Monday": "9am - 5pm",
-      "Tuesday": "9am - 1pm",
-      "Wednesday": "9am - 5pm",
-      "Thursday": "9am - 5pm",
-      "Friday": "8am - 2pm",
+      "Monday": "09:00 - 17:00",
+      "Tuesday": "09:00 - 13:00",
+      "Wednesday": "09:00 - 17:00",
+      "Thursday": "09:00 - 17:00",
+      "Friday": "08:00 - 14:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -46,11 +46,11 @@
     "doctor_id": "4d5e6f",
     "insurance_center": "Famisanar",
     "schedule": {
-      "Monday": "8am - 4pm",
-      "Tuesday": "8am - 4pm",
-      "Wednesday": "8am - 4pm",
-      "Thursday": "8am - 1pm",
-      "Friday": "8am - 2pm",
+      "Monday": "08:00 - 16:00",
+      "Tuesday": "08:00 - 16:00",
+      "Wednesday": "08:00 - 16:00",
+      "Thursday": "08:00 - 13:00",
+      "Friday": "08:00 - 14:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -60,11 +60,11 @@
     "doctor_id": "5e6f7g",
     "insurance_center": "Salud Total",
     "schedule": {
-      "Monday": "7am - 3pm",
-      "Tuesday": "7am - 3pm",
-      "Wednesday": "7am - 3pm",
-      "Thursday": "7am - 3pm",
-      "Friday": "7am - 1pm",
+      "Monday": "07:00 - 15:00",
+      "Tuesday": "07:00 - 15:00",
+      "Wednesday": "07:00 - 15:00",
+      "Thursday": "07:00 - 15:00",
+      "Friday": "07:00 - 13:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -74,11 +74,11 @@
     "doctor_id": "6f7g8h",
     "insurance_center": "Nueva EPS",
     "schedule": {
-      "Monday": "9am - 6pm",
-      "Tuesday": "9am - 6pm",
-      "Wednesday": "9am - 6pm",
-      "Thursday": "9am - 6pm",
-      "Friday": "9am - 2pm",
+      "Monday": "09:00 - 18:00",
+      "Tuesday": "09:00 - 18:00",
+      "Wednesday": "09:00 - 18:00",
+      "Thursday": "09:00 - 18:00",
+      "Friday": "09:00 - 14:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -88,11 +88,11 @@
     "doctor_id": "7g8h9i",
     "insurance_center": "Salud Total",
     "schedule": {
-      "Monday": "8am - 5pm",
-      "Tuesday": "9am - 5pm",
-      "Wednesday": "8am - 5pm",
-      "Thursday": "8am - 5pm",
-      "Friday": "8am - 2pm",
+      "Monday": "08:00 - 17:00",
+      "Tuesday": "09:00 - 17:00",
+      "Wednesday": "08:00 - 17:00",
+      "Thursday": "08:00 - 17:00",
+      "Friday": "08:00 - 14:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -102,11 +102,11 @@
     "doctor_id": "8h9i0j",
     "insurance_center": "Coomeva",
     "schedule": {
-      "Monday": "7am - 3pm",
-      "Tuesday": "7am - 3pm",
-      "Wednesday": "7am - 3pm",
-      "Thursday": "7am - 3pm",
-      "Friday": "7am - 1pm",
+      "Monday": "07:00 - 15:00",
+      "Tuesday": "07:00 - 15:00",
+      "Wednesday": "07:00 - 15:00",
+      "Thursday": "07:00 - 15:00",
+      "Friday": "07:00 - 13:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -116,11 +116,11 @@
     "doctor_id": "9i0j1k",
     "insurance_center": "Famisanar",
     "schedule": {
-      "Monday": "9am - 5pm",
-      "Tuesday": "9am - 5pm",
-      "Wednesday": "9am - 5pm",
-      "Thursday": "9am - 5pm",
-      "Friday": "9am - 3pm",
+      "Monday": "09:00 - 17:00",
+      "Tuesday": "09:00 - 17:00",
+      "Wednesday": "09:00 - 17:00",
+      "Thursday": "09:00 - 17:00",
+      "Friday": "09:00 - 15:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
@@ -130,11 +130,11 @@
     "doctor_id": "0j1k2l",
     "insurance_center": "EPS Sanitas",
     "schedule": {
-      "Monday": "8am - 4pm",
-      "Tuesday": "8am - 4pm",
-      "Wednesday": "8am - 1pm",
-      "Thursday": "8am - 4pm",
-      "Friday": "8am - 2pm",
+      "Monday": "08:00 - 16:00",
+      "Tuesday": "08:00 - 16:00",
+      "Wednesday": "08:00 - 13:00",
+      "Thursday": "08:00 - 16:00",
+      "Friday": "08:00 - 14:00",
       "Saturday": "Closed",
       "Sunday": "Closed"
     }
