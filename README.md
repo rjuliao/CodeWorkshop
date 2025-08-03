@@ -43,83 +43,166 @@ Devuelve un arreglo JSON con todos los doctores registrados.
   {
     "id": "1a2b3c",
     "name": "Juan Pérez",
-    "medical_field": "CARD",
     ...
-  },
-  ...
+  }
 ]
 ```
 
-### 2. Obtener doctores por especialidad médica
+---
 
-**GET /doctors/{nombre_especialidad}**
+### 2. Crear un nuevo paciente
 
-Filtra y devuelve doctores según el nombre de la especialidad médica. El nombre debe coincidir con el registrado en `medical_fields.json`.
+**POST /patients**
+
+Crea un nuevo usuario paciente en el sistema.
+
+**Parámetros (JSON en el body):**
+
+- `email`: Email del paciente (string)
+- `password`: Contraseña del paciente (string)
 
 **Ejemplo de uso:**
 
-```
-GET /doctors/Cardiología
+```bash
+curl -X POST http://localhost:3000/patients \
+  -H "Content-Type: application/json" \
+  -d '{"email":"usuario@example.com","password":"miclave"}'
 ```
 
-**Ejemplo de respuesta:**
+**Respuesta exitosa:**
+
+```json
+{
+  "message": "Paciente creado exitosamente.",
+  "id": "p1001"
+}
+```
+
+---
+
+### 3. Autenticar paciente
+
+**POST /patients/auth**
+
+Permite autenticar a un paciente usando su email y contraseña.
+
+**Parámetros (JSON en el body):**
+
+- `email`: Email del paciente (string)
+- `password`: Contraseña del paciente (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl -X POST http://localhost:3000/patients/auth \
+  -H "Content-Type: application/json" \
+  -d '{"email":"usuario@example.com","password":"miclave"}'
+```
+
+**Respuesta exitosa:**
+
+```json
+{
+  "message": "Autenticación exitosa.",
+  "id": "p1001"
+}
+```
+
+---
+
+### 4. Crear una nueva cita médica
+
+**POST /appointments**
+
+Crea una nueva cita médica entre un paciente y un doctor.
+
+**Parámetros (JSON en el body):**
+
+- `scheduled_date`: Fecha de la cita en formato DD/MM/YYYY (string)
+- `scheduled_time`: Horario de la cita en formato "HH:MM - HH:MM" (string, 24 horas)
+- `doctor_id`: ID del doctor (string)
+- `patient_id`: ID del paciente (string)
+- `patient_email`: Email del paciente (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl -X POST http://localhost:3000/appointments \
+  -H "Content-Type: application/json" \
+  -d '{
+    "scheduled_date": "10/08/2025",
+    "scheduled_time": "09:00 - 09:30",
+    "doctor_id": "1a2b3c",
+    "patient_id": "p1001",
+    "patient_email": "usuario@example.com"
+  }'
+```
+
+**Respuesta exitosa:**
+
+```json
+{
+  "message": "Appointment created successfully.",
+  "id": "a1"
+}
+```
+
+---
+
+### 5. Eliminar una cita médica
+
+**DELETE /appointments/:id**
+
+Elimina una cita médica existente usando el ID de la cita.
+
+**Parámetros (URL):**
+
+- `id`: ID de la cita médica (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl -X DELETE http://localhost:3000/appointments/a1
+```
+
+**Respuesta exitosa:**
+
+```json
+{
+  "message": "Appointment deleted successfully."
+}
+```
+
+---
+
+### 6. Consultar todas las citas de un paciente
+
+**GET /patients/:id/appointments**
+
+Devuelve todas las citas médicas asociadas a un paciente.
+
+**Parámetros (URL):**
+
+- `id`: ID del paciente (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/patients/p1001/appointments
+```
+
+**Respuesta exitosa:**
 
 ```json
 [
   {
-    "id": "1a2b3c",
-    "name": "Juan Pérez",
-    "medical_field": "CARD",
-    ...
+    "date": "10/08/2025",
+    "time": "09:00 - 09:30",
+    "doctor_name": "Juan Pérez",
+    "doctor_id": "1a2b3c",
+    "medical_field": "Cardiología"
   }
 ]
-```
-
-### 3. Consultar disponibilidad de un doctor por fecha
-
-**GET /doctors/availability/id={doctorId}/date={DD-MM-YYYY}**
-
-Devuelve los bloques de 30 minutos disponibles para agendar una cita con el doctor en la fecha indicada.
-
-**Ejemplo de uso:**
-
-```
-GET /doctors/availability/id=1a2b3c/date=10-08-2025
-```
-
-**Ejemplo de respuesta:**
-
-```json
-{
-  "doctor_id": "1a2b3c",
-  "date": "10-08-2025",
-  "available_slots": ["09:30", "10:00", "10:30", ...]
-}
-```
-
-### 4. Consultar disponibilidad semanal de un doctor
-
-**GET /doctors/availability/{id}**
-
-Devuelve la disponibilidad semanal del doctor por día y hora.
-
-**Ejemplo de uso:**
-
-```
-GET /doctors/availability/1a2b3c
-```
-
-**Ejemplo de respuesta:**
-
-```json
-{
-  "doctor_id": "1a2b3c",
-  "availability": {
-    "Monday": ["09:00", "09:30", ...],
-    "Tuesday": ["10:00", "10:30", ...],
-    ...
-  }
-}
 ```
 
 ## Notas
