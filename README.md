@@ -473,3 +473,48 @@ curl http://localhost:3000/medications
   // ...más
 ]
 ```
+
+---
+
+#### 15. Consultar los formularios médicos de un paciente
+
+**GET /medical_form/:patient_id**
+
+Devuelve la lista de todos los formularios médicos registrados para un paciente específico, incluyendo toda la información de cada formulario.
+
+**Parámetros (URL):**
+
+- `patient_id`: ID del paciente (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/medical_form/p1001
+```
+
+**Respuesta:**
+
+Si el paciente tiene formularios médicos registrados:
+
+```json
+[
+  {
+    "id": "mf1",
+    "patient_id": "p1001",
+    "doctor_id": "1a2b3c",
+    "doctor_name": "Juan Pérez",
+    "medicines": [
+      { "id": "med1", "nombre": "Paracetamol" },
+      { "id": "med2", "nombre": "Ibuprofeno" }
+    ]
+  }
+]
+```
+
+Si el paciente no tiene formularios médicos registrados:
+
+```json
+{
+  "warning": "El usuario no tiene formularios médicos registrados."
+}
+```
