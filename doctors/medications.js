@@ -113,4 +113,28 @@ router.get("/medications", (req, res) => {
   }
 });
 
+// Endpoint: get medical forms by patient ID
+router.get("/medical_form/:patient_id", (req, res) => {
+  const { patient_id } = req.params;
+
+  // Validate patient exists
+  const patients = readJson(patientsPath);
+  const patient = patients.find((p) => p.id === patient_id);
+  if (!patient) {
+    return res.status(404).json({ error: "Patient not found." });
+  }
+
+  // Get medical forms for the patient
+  const forms = readJson(medicalFormPath);
+  const userForms = forms.filter((form) => form.patient_id === patient_id);
+
+  if (userForms.length === 0) {
+    return res.status(200).json({
+      warning: "El usuario no tiene formularios médicos registrados.",
+    });
+  }
+
+  return res.json(userForms);
+});
+
 module.exports = router;
