@@ -1,0 +1,182 @@
+[
+  {
+    "id": "med1",
+    "nombre": "Paracetamol",
+    "uso": "Analgésico y antipirético",
+    "descripcion": "Utilizado para aliviar el dolor leve a moderado y reducir la fiebre."
+  },
+  {
+    "id": "med2",
+    "nombre": "Ibuprofeno",
+    "uso": "Antiinflamatorio no esteroideo",
+    "descripcion": "Indicado para el tratamiento del dolor, inflamación y fiebre."
+  },
+  {
+    "id": "med3",
+    "nombre": "Amoxicilina",
+    "uso": "Antibiótico",
+    "descripcion": "Utilizado para tratar infecciones bacterianas como otitis, sinusitis y bronquitis."
+  },
+  {
+    "id": "med4",
+    "nombre": "Omeprazol",
+    "uso": "Inhibidor de la bomba de protones",
+    "descripcion": "Indicado para el tratamiento de gastritis, reflujo gastroesofágico y úlceras."
+  },
+  {
+    "id": "med5",
+    "nombre": "Loratadina",
+    "uso": "Antihistamínico",
+    "descripcion": "Utilizado para aliviar síntomas de alergias como estornudos y picazón."
+  },
+  {
+    "id": "med6",
+    "nombre": "Metformina",
+    "uso": "Antidiabético oral",
+    "descripcion": "Indicado para el tratamiento de la diabetes tipo 2."
+  },
+  {
+    "id": "med7",
+    "nombre": "Salbutamol",
+    "uso": "Broncodilatador",
+    "descripcion": "Utilizado para el alivio rápido de síntomas de asma y EPOC."
+  },
+  {
+    "id": "med8",
+    "nombre": "Simvastatina",
+    "uso": "Hipolipemiante",
+    "descripcion": "Indicado para reducir el colesterol y prevenir enfermedades cardiovasculares."
+  },
+  {
+    "id": "med9",
+    "nombre": "Aspirina",
+    "uso": "Antiinflamatorio y antiagregante plaquetario",
+    "descripcion": "Utilizado para el dolor, fiebre y prevención de eventos cardiovasculares."
+  },
+  {
+    "id": "med10",
+    "nombre": "Azitromicina",
+    "uso": "Antibiótico",
+    "descripcion": "Indicado para infecciones respiratorias, de piel y tejidos blandos."
+  },
+  {
+    "id": "med11",
+    "nombre": "Prednisona",
+    "uso": "Corticosteroide",
+    "descripcion": "Utilizado para tratar inflamaciones, alergias y enfermedades autoinmunes."
+  },
+  {
+    "id": "med12",
+    "nombre": "Furosemida",
+    "uso": "Diurético",
+    "descripcion": "Indicado para tratar la retención de líquidos y la hipertensión."
+  },
+  {
+    "id": "med13",
+    "nombre": "Enalapril",
+    "uso": "Antihipertensivo",
+    "descripcion": "Utilizado para tratar la presión arterial alta y la insuficiencia cardíaca."
+  },
+  {
+    "id": "med14",
+    "nombre": "Cetirizina",
+    "uso": "Antihistamínico",
+    "descripcion": "Indicado para el tratamiento de alergias y rinitis."
+  },
+  {
+    "id": "med15",
+    "nombre": "Clonazepam",
+    "uso": "Ansiolítico y anticonvulsivo",
+    "descripcion": "Utilizado para tratar trastornos de ansiedad y epilepsia."
+  },
+  {
+    "id": "med16",
+    "nombre": "Diclofenaco",
+    "uso": "Antiinflamatorio no esteroideo",
+    "descripcion": "Indicado para el tratamiento del dolor e inflamación."
+  },
+  {
+    "id": "med17",
+    "nombre": "Ranitidina",
+    "uso": "Antiácido",
+    "descripcion": "Utilizado para tratar la acidez estomacal y úlceras gástricas."
+  },
+  {
+    "id": "med18",
+    "nombre": "Insulina",
+    "uso": "Antidiabético",
+    "descripcion": "Indicado para el tratamiento de la diabetes tipo 1 y tipo 2."
+  },
+  {
+    "id": "med19",
+    "nombre": "Warfarina",
+    "uso": "Anticoagulante",
+    "descripcion": "Utilizado para prevenir la formación de coágulos sanguíneos."
+  },
+  {
+    "id": "med20",
+    "nombre": "Levodopa",
+    "uso": "Antiparkinsoniano",
+    "descripcion": "Indicado para el tratamiento de la enfermedad de Parkinson."
+  },
+  {
+    "id": "med21",
+    "nombre": "Sertralina",
+    "uso": "Antidepresivo",
+    "descripcion": "Utilizado para tratar la depresión y trastornos de ansiedad."
+  },
+  {
+    "id": "med22",
+    "nombre": "Amlodipino",
+    "uso": "Antihipertensivo",
+    "descripcion": "Indicado para tratar la hipertensión y angina de pecho."
+  },
+  {
+    "id": "med23",
+    "nombre": "Tramadol",
+    "uso": "Analgésico",
+    "descripcion": "Utilizado para el tratamiento del dolor moderado a severo."
+  },
+  {
+    "id": "med24",
+    "nombre": "Fluoxetina",
+    "uso": "Antidepresivo",
+    "descripcion": "Indicado para tratar la depresión, ansiedad y trastornos obsesivo-compulsivos."
+  },
+  {
+    "id": "med25",
+    "nombre": "Losartán",
+    "uso": "Antihipertensivo",
+    "descripcion": "Utilizado para tratar la presión arterial alta."
+  },
+  {
+    "id": "med26",
+    "nombre": "Metoclopramida",
+    "uso": "Antiemético",
+    "descripcion": "Indicado para tratar náuseas y vómitos."
+  },
+  {
+    "id": "med27",
+    "nombre": "Alprazolam",
+    "uso": "Ansiolítico",
+    "descripcion": "Utilizado para tratar trastornos de ansiedad y pánico."
+  },
+  {
+    "id": "med28",
+    "nombre": "Clopidogrel",
+    "uso": "Antiagregante plaquetario",
+    "descripcion": "Indicado para prevenir eventos cardiovasculares."
+  },
+  {
+    "id": "med29",
+    "nombre": "Doxiciclina",
+    "uso": "Antibiótico",
+    "descripcion": "Utilizado para tratar infecciones bacterianas diversas."
+  },
+  {
+    "id": "med30",
+    "nombre": "Montelukast",
+    "uso": "Antiasmático",
+    "descripcion": "Indicado para el tratamiento del asma y rinitis alérgica."
+  }
+]
