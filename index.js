@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 const doctorsRouter = require("./doctors/doctors");
-const patientRoutes = require("./patient/patient");
+const patientRoutes = require("./patients/patient");
 
 app.use("/doctors", doctorsRouter);
 app.use(patientRoutes);
