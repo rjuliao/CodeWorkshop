@@ -4,6 +4,9 @@ const app = express();
 // Middleware to parse JSON request bodies
 app.use(express.json());
 
+const connectMongo = require("./db/mongo");
+connectMongo();
+
 const doctorsRouter = require("./doctors/doctors");
 const patientRouter = require("./patients/patient");
 const appointmentsRouter = require("./doctors/appointments");
