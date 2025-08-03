@@ -115,4 +115,19 @@ router.post("/appointments", (req, res) => {
     .json({ message: "Appointment created successfully.", id });
 });
 
+// Endpoint: deleteAppointment
+router.delete("/appointments/:id", (req, res) => {
+  const appointmentId = req.params.id;
+  const appointments = readJson(appointmentsPath);
+
+  const index = appointments.findIndex((a) => a.id === appointmentId);
+  if (index === -1) {
+    return res.status(404).json({ error: "Appointment not found." });
+  }
+
+  appointments.splice(index, 1);
+  fs.writeFileSync(appointmentsPath, JSON.stringify(appointments, null, 2));
+  return res.status(200).json({ message: "Appointment deleted successfully." });
+});
+
 module.exports = router;

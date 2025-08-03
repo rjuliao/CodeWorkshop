@@ -48,14 +48,6 @@
     "patient_email": "lucas.torres@example.com"
   },
   {
-    "id": "a7",
-    "doctor_id": "3c4d5e",
-    "scheduled_date": "15/08/2025",
-    "scheduled_time": "10:00 - 10:30",
-    "patient_id": "p1007",
-    "patient_email": "valentina.moreno@example.com"
-  },
-  {
     "id": "a8",
     "doctor_id": "4d5e6f",
     "scheduled_date": "16/08/2025",
