@@ -5,8 +5,10 @@ const app = express();
 app.use(express.json());
 
 const doctorsRouter = require("./doctors/doctors");
+const patientRoutes = require("./patient/patient");
 
 app.use("/doctors", doctorsRouter);
+app.use(patientRoutes);
 
 const PORT = process.env.PORT || 3000;
 
