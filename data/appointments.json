@@ -2,8 +2,8 @@
   {
     "id": "a1",
     "doctor_id": "1a2b3c",
-    "scheduled_date": "10/08/2025",
-    "scheduled_time": "09:00 - 09:30",
+    "scheduled_date": "12/08/2025",
+    "scheduled_time": "11:00 - 11:30",
     "patient_id": "p1001",
     "patient_email": "maria.smith@example.com"
   },
