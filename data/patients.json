@@ -23,5 +23,10 @@
     "id": "p1005",
     "email": "user6@example.com",
     "password": "71aa8d6cf0c37b78cf75edaa51c47cacfe596adb83655488fad6f1f57c8ed562"
+  },
+  {
+    "id": "p1006",
+    "email": "user7@example.com",
+    "password": "71aa8d6cf0c37b78cf75edaa51c47cacfe596adb83655488fad6f1f57c8ed562"
   }
 ]
