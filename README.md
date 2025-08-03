@@ -30,19 +30,32 @@ Este proyecto es una API desarrollada con Node.js y Express para gestionar infor
 
 ## Endpoints disponibles y ejemplos de uso
 
-### 1. Obtener todos los doctores
+A continuación se listan todos los endpoints disponibles en el sistema, agrupados por funcionalidad y archivo correspondiente:
+
+---
+
+### Endpoints de Doctores (`doctors.js`)
+
+#### 1. Obtener todos los doctores
 
 **GET /doctors/**
 
 Devuelve un arreglo JSON con todos los doctores registrados.
 
-**Ejemplo de respuesta:**
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/doctors/
+```
+
+**Respuesta:**
 
 ```json
 [
   {
     "id": "1a2b3c",
     "name": "Juan Pérez",
+    "medical_field": "Cardiología",
     ...
   }
 ]
@@ -50,7 +63,126 @@ Devuelve un arreglo JSON con todos los doctores registrados.
 
 ---
 
-### 2. Crear un nuevo paciente
+#### 2. Obtener doctores por especialidad médica
+
+**GET /doctors/field/:field**
+
+Devuelve un arreglo JSON con todos los doctores que pertenecen a una especialidad médica específica.
+
+**Parámetros (URL):**
+
+- `field`: Nombre o ID de la especialidad médica (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/doctors/field/Cardiología
+```
+
+**Respuesta:**
+
+```json
+[
+  {
+    "id": "1a2b3c",
+    "name": "Juan Pérez",
+    "medical_field": "Cardiología"
+  }
+]
+```
+
+---
+
+#### 3. Obtener disponibilidad de un doctor por ID
+
+**GET /doctors/:id/availability**
+
+Devuelve los bloques de horario disponibles para un doctor específico.
+
+**Parámetros (URL):**
+
+- `id`: ID del doctor (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/doctors/1a2b3c/availability
+```
+
+**Respuesta:**
+
+```json
+{
+  "doctor_id": "1a2b3c",
+  "availability": ["09:00 - 09:30", "10:00 - 10:30"]
+}
+```
+
+---
+
+#### 4. Validar disponibilidad de horario de un doctor en una fecha específica
+
+**POST /doctors/:id/validate-availability**
+
+Valida si un doctor tiene disponible un horario en una fecha específica.
+
+**Parámetros (JSON en el body):**
+
+- `scheduled_date`: Fecha a consultar en formato DD/MM/YYYY (string)
+- `scheduled_time`: Horario a consultar en formato "HH:MM - HH:MM" (string, 24 horas)
+
+**Ejemplo de uso:**
+
+```bash
+curl -X POST http://localhost:3000/doctors/1a2b3c/validate-availability \
+  -H "Content-Type: application/json" \
+  -d '{"scheduled_date":"10/08/2025","scheduled_time":"09:00 - 09:30"}'
+```
+
+**Respuesta:**
+
+```json
+{
+  "available": true
+}
+```
+
+---
+
+#### 5. Obtener todos los doctores con información extendida
+
+**GET /doctors/extended**
+
+Devuelve un arreglo JSON con todos los doctores y su información extendida, incluyendo especialidad, disponibilidad y datos de contacto.
+
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/doctors/extended
+```
+
+**Respuesta:**
+
+```json
+[
+  {
+    "id": "1a2b3c",
+    "name": "Juan Pérez",
+    "medical_field": "Cardiología",
+    "availability": ["09:00 - 09:30", "10:00 - 10:30"],
+    "contact": {
+      "email": "juan.perez@example.com",
+      "phone": "+123456789"
+    }
+  }
+]
+```
+
+---
+
+### Endpoints de Pacientes (`patients.js`)
+
+#### 6. Crear un nuevo paciente
 
 **POST /patients**
 
@@ -69,7 +201,7 @@ curl -X POST http://localhost:3000/patients \
   -d '{"email":"usuario@example.com","password":"miclave"}'
 ```
 
-**Respuesta exitosa:**
+**Respuesta:**
 
 ```json
 {
@@ -80,7 +212,7 @@ curl -X POST http://localhost:3000/patients \
 
 ---
 
-### 3. Autenticar paciente
+#### 7. Autenticar paciente
 
 **POST /patients/auth**
 
@@ -99,7 +231,7 @@ curl -X POST http://localhost:3000/patients/auth \
   -d '{"email":"usuario@example.com","password":"miclave"}'
 ```
 
-**Respuesta exitosa:**
+**Respuesta:**
 
 ```json
 {
@@ -110,7 +242,41 @@ curl -X POST http://localhost:3000/patients/auth \
 
 ---
 
-### 4. Crear una nueva cita médica
+#### 8. Consultar todas las citas de un paciente
+
+**GET /patients/:id/appointments**
+
+Devuelve todas las citas médicas asociadas a un paciente.
+
+**Parámetros (URL):**
+
+- `id`: ID del paciente (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/patients/p1001/appointments
+```
+
+**Respuesta:**
+
+```json
+[
+  {
+    "date": "10/08/2025",
+    "time": "09:00 - 09:30",
+    "doctor_name": "Juan Pérez",
+    "doctor_id": "1a2b3c",
+    "medical_field": "Cardiología"
+  }
+]
+```
+
+---
+
+### Endpoints de Citas Médicas (`appointments.js`)
+
+#### 9. Crear una nueva cita médica
 
 **POST /appointments**
 
@@ -138,7 +304,7 @@ curl -X POST http://localhost:3000/appointments \
   }'
 ```
 
-**Respuesta exitosa:**
+**Respuesta:**
 
 ```json
 {
@@ -149,7 +315,7 @@ curl -X POST http://localhost:3000/appointments \
 
 ---
 
-### 5. Eliminar una cita médica
+#### 10. Eliminar una cita médica
 
 **DELETE /appointments/:id**
 
@@ -165,7 +331,7 @@ Elimina una cita médica existente usando el ID de la cita.
 curl -X DELETE http://localhost:3000/appointments/a1
 ```
 
-**Respuesta exitosa:**
+**Respuesta:**
 
 ```json
 {
@@ -175,35 +341,14 @@ curl -X DELETE http://localhost:3000/appointments/a1
 
 ---
 
-### 6. Consultar todas las citas de un paciente
+#### 11. Validaciones adicionales en la creación de citas
 
-**GET /patients/:id/appointments**
+- No se permite crear dos citas iguales para el mismo doctor, paciente, fecha y hora.
+- No se permite que dos pacientes diferentes reserven el mismo doctor, fecha y hora.
+- Se valida que el doctor y el paciente existan antes de crear la cita.
+- Se valida el formato del horario.
 
-Devuelve todas las citas médicas asociadas a un paciente.
-
-**Parámetros (URL):**
-
-- `id`: ID del paciente (string)
-
-**Ejemplo de uso:**
-
-```bash
-curl http://localhost:3000/patients/p1001/appointments
-```
-
-**Respuesta exitosa:**
-
-```json
-[
-  {
-    "date": "10/08/2025",
-    "time": "09:00 - 09:30",
-    "doctor_name": "Juan Pérez",
-    "doctor_id": "1a2b3c",
-    "medical_field": "Cardiología"
-  }
-]
-```
+---
 
 ## Notas
 
