@@ -5,6 +5,8 @@ const crypto = require("crypto");
 const router = express.Router();
 
 const dataPath = path.join(__dirname, "../data/patients.json");
+const appointmentsPath = path.join(__dirname, "../data/appointments.json");
+const doctorsPath = path.join(__dirname, "../data/doctors.json");
 
 // Leer pacientes desde el archivo (maneja errores de parseo)
 function readPatients() {
@@ -88,6 +90,46 @@ router.post("/patients/auth", (req, res) => {
   return res
     .status(200)
     .json({ message: "Autenticación exitosa.", id: patient.id });
+});
+
+// Endpoint: get all appointments for a patient
+router.get("/patients/:id/appointments", (req, res) => {
+  const patientId = req.params.id;
+  const appointments = readPatients(); // This should be readJson for appointments
+  const allAppointments = (() => {
+    if (!fs.existsSync(appointmentsPath)) return [];
+    try {
+      const data = fs.readFileSync(appointmentsPath, "utf8");
+      return data ? JSON.parse(data) : [];
+    } catch {
+      return [];
+    }
+  })();
+
+  const doctors = (() => {
+    if (!fs.existsSync(doctorsPath)) return [];
+    try {
+      const data = fs.readFileSync(doctorsPath, "utf8");
+      return data ? JSON.parse(data) : [];
+    } catch {
+      return [];
+    }
+  })();
+
+  const userAppointments = allAppointments
+    .filter((a) => a.patient_id === patientId)
+    .map((a) => {
+      const doctor = doctors.find((d) => d.id === a.doctor_id) || {};
+      return {
+        date: a.scheduled_date,
+        time: a.scheduled_time,
+        doctor_name: doctor.name || "",
+        doctor_id: a.doctor_id,
+        medical_field: doctor.medical_field || "",
+      };
+    });
+
+  return res.json(userAppointments);
 });
 
 module.exports = router;
