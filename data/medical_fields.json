@@ -1,102 +1,102 @@
 [
   {
     "id": "CARD",
-    "name": "Cardiology",
+    "name": "Cardiología",
     "description": "La cardiología es la rama de la medicina que se dedica al estudio, diagnóstico y tratamiento de las enfermedades del corazón y los vasos sanguíneos."
   },
   {
     "id": "PED",
-    "name": "Pediatrics",
+    "name": "Pediatría",
     "description": "La pediatría es la rama de la medicina que se centra en la salud de los niños y adolescentes."
   },
   {
     "id": "NEUR",
-    "name": "Neurology",
+    "name": "Neurología",
     "description": "La neurología es la rama de la medicina que se ocupa del diagnóstico y tratamiento de las enfermedades del sistema nervioso."
   },
   {
     "id": "DERM",
-    "name": "Dermatology",
+    "name": "Dermatología",
     "description": "La dermatología es la especialidad médica que se dedica al diagnóstico y tratamiento de las enfermedades de la piel, el cabello y las uñas."
   },
   {
     "id": "ORTHO",
-    "name": "Orthopedics",
+    "name": "Ortopedia",
     "description": "La ortopedia es la rama de la medicina que se dedica a la atención de las enfermedades y lesiones del sistema musculoesquelético."
   },
   {
     "id": "ONCO",
-    "name": "Oncology",
+    "name": "Oncología",
     "description": "La oncología es la especialidad médica que se ocupa del estudio, diagnóstico y tratamiento del cáncer."
   },
   {
     "id": "PSYCH",
-    "name": "Psychiatry",
+    "name": "Psiquiatría",
     "description": "La psiquiatría es la rama de la medicina que se ocupa del diagnóstico y tratamiento de las enfermedades mentales."
   },
   {
     "id": "GASTRO",
-    "name": "Gastroenterology",
+    "name": "Gastroenterología",
     "description": "La gastroenterología es la especialidad médica que se dedica al estudio y tratamiento de las enfermedades del sistema digestivo."
   },
   {
     "id": "ENDO",
-    "name": "Endocrinology",
+    "name": "Endocrinología",
     "description": "La endocrinología es la especialidad médica que se ocupa del estudio y tratamiento de las enfermedades del sistema endocrino."
   },
   {
     "id": "OPHTH",
-    "name": "Ophthalmology",
+    "name": "Oftalmología",
     "description": "La oftalmología es la especialidad médica que se dedica al estudio y tratamiento de las enfermedades del ojo."
   },
   {
     "id": "URO",
-    "name": "Urology",
+    "name": "Urología",
     "description": "La urología es la especialidad médica que se ocupa del estudio y tratamiento de las enfermedades del sistema urinario y los órganos reproductores."
   },
   {
     "id": "ALL",
-    "name": "Allergy and Immunology",
+    "name": "Alergología e Inmunología",
     "description": "La alergología e inmunología se enfocan en el estudio y tratamiento de las alergias y los trastornos del sistema inmunitario."
   },
   {
     "id": "SURG",
-    "name": "Surgery",
+    "name": "Cirugía",
     "description": "La cirugía es la especialidad médica que implica la reparación o reconstrucción de tejidos dañados mediante intervenciones quirúrgicas."
   },
   {
     "id": "ORTHO",
-    "name": "Orthodontics",
+    "name": "Ortodoncia",
     "description": "La ortodoncía se centra en el tratamiento de problemas de alineación dental y la correcta posición de los dientes."
   },
   {
     "id": "ANESTH",
-    "name": "Anesthesiology",
+    "name": "Anestesiología",
     "description": "La anestesiología se dedica a la administración de anestesia para procedimientos médicos y quirúrgicos."
   },
   {
     "id": "RADIO",
-    "name": "Radiology",
+    "name": "Radiología",
     "description": "La radiología se dedica al uso de imágenes médicas para diagnosticar y tratar enfermedades."
   },
   {
     "id": "PATH",
-    "name": "Pathology",
+    "name": "Patología",
     "description": "La patología es la rama de la medicina que estudia las causas y mecanismos de las enfermedades."
   },
   {
     "id": "ENT",
-    "name": "Otolaryngology",
+    "name": "Otorrinolaringología",
     "description": "La otorrinolaringología se dedica al estudio y tratamiento de las enfermedades del oído, la nariz y la garganta."
   },
   {
     "id": "NEPH",
-    "name": "Nephrology",
+    "name": "Nefrología",
     "description": "La nefrología se ocupa del estudio y tratamiento de las enfermedades de los riñones."
   },
   {
     "id": "GERI",
-    "name": "Geriatrics",
+    "name": "Geriatría",
     "description": "La geriatría se dedica al estudio y tratamiento de las enfermedades y los problemas de salud de las personas mayores."
   }
 ]
