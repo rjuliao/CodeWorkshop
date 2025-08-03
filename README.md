@@ -396,8 +396,46 @@ curl -X PUT http://localhost:3000/appointments/a1/reschedule \
 - Se valida que el doctor exista.
 - Se valida el formato de la nueva fecha y hora.
 
-## Notas
+---
 
-- Los datos de doctores, especialidades y citas se encuentran en el directorio `/data`.
-- El formato de hora para los bloques de disponibilidad y citas es 24 horas.
-- Puedes modificar y ampliar los endpoints según las necesidades del proyecto.
+## Endpoint de Formularios Médicos (`medication.js`)
+
+#### 13. Crear un nuevo formulario médico con medicamentos prescritos
+
+**POST /medical_form**
+
+Permite a un paciente registrar un nuevo formulario médico con los medicamentos que le fueron prescritos por un doctor.
+
+**Parámetros (JSON en el body):**
+
+- `patient_id`: ID del paciente (string)
+- `doctor_id`: ID del doctor (string)
+- `medicines`: Lista de IDs de medicamentos prescritos (array de strings)
+
+**Ejemplo de uso:**
+
+```bash
+curl -X POST http://localhost:3000/medical_form \
+  -H "Content-Type: application/json" \
+  -d '{
+    "patient_id": "p1001",
+    "doctor_id": "1a2b3c",
+    "medicines": ["med1", "med2", "med5"]
+  }'
+```
+
+**Respuesta exitosa:**
+
+```json
+{
+  "message": "Medical form created successfully.",
+  "id": "mf1"
+}
+```
+
+**Validaciones importantes:**
+
+- El paciente debe existir en el sistema.
+- El doctor debe existir en el sistema.
+- Todos los medicamentos deben existir en el sistema.
+- Se crea un nuevo registro en el archivo `medical_form.json` con el ID del formulario, ID y nombre del doctor, ID del paciente y la lista de medicamentos.

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mf1",
+    "patient_id": "p1001",
+    "doctor_id": "1a2b3c",
+    "doctor_name": "Juan Pérez",
+    "medicines": [
+      {
+        "id": "med1",
+        "nombre": "Paracetamol"
+      },
+      {
+        "id": "med2",
+        "nombre": "Ibuprofeno"
+      },
+      {
+        "id": "med5",
+        "nombre": "Loratadina"
+      }
+    ]
+  },
+  {
+    "id": "mf2",
+    "patient_id": "p1002",
+    "doctor_id": "1a2b3c",
+    "doctor_name": "Juan Pérez",
+    "medicines": [
+      {
+        "id": "med10",
+        "nombre": "Azitromicina"
+      },
+      {
+        "id": "med20",
+        "nombre": "Levodopa"
+      },
+      {
+        "id": "med15",
+        "nombre": "Clonazepam"
+      },
+      {
+        "id": "med16",
+        "nombre": "Diclofenaco"
+      },
+      {
+        "id": "med17",
+        "nombre": "Ranitidina"
+      }
+    ]
+  }
+]
