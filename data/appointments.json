@@ -78,5 +78,21 @@
     "scheduled_time": "15:00 - 15:30",
     "patient_id": "p1010",
     "patient_email": "miguel.angel@example.com"
+  },
+  {
+    "id": "a11",
+    "doctor_id": "1a2b3c",
+    "scheduled_date": "10/08/2025",
+    "scheduled_time": "09:00 - 09:30",
+    "patient_id": "p1001",
+    "patient_email": "user2@example.com"
+  },
+  {
+    "id": "a12",
+    "doctor_id": "1a2b3c",
+    "scheduled_date": "10/08/2025",
+    "scheduled_time": "09:00 - 09:30",
+    "patient_id": "p1002",
+    "patient_email": "user3@example.com"
   }
 ]
