@@ -439,3 +439,37 @@ curl -X POST http://localhost:3000/medical_form \
 - El doctor debe existir en el sistema.
 - Todos los medicamentos deben existir en el sistema.
 - Se crea un nuevo registro en el archivo `medical_form.json` con el ID del formulario, ID y nombre del doctor, ID del paciente y la lista de medicamentos.
+
+---
+
+#### 14. Obtener la lista de todos los medicamentos
+
+**GET /medications**
+
+Devuelve un arreglo JSON con todos los medicamentos registrados en el sistema.
+
+**Ejemplo de uso:**
+
+```bash
+curl http://localhost:3000/medications
+```
+
+**Respuesta:**
+
+```json
+[
+  {
+    "id": "med1",
+    "nombre": "Paracetamol",
+    "uso": "Analgésico y antipirético",
+    "descripcion": "Utilizado para aliviar el dolor leve a moderado y reducir la fiebre."
+  },
+  {
+    "id": "med2",
+    "nombre": "Ibuprofeno",
+    "uso": "Antiinflamatorio no esteroideo",
+    "descripcion": "Indicado para el tratamiento del dolor, inflamación y fiebre."
+  }
+  // ...más
+]
+```

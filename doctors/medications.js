@@ -96,4 +96,21 @@ router.post("/medical_form", (req, res) => {
     .json({ message: "Medical form created successfully.", id });
 });
 
+// Endpoint: get all medications
+router.get("/medications", (req, res) => {
+  const medicationsPath = path.join(__dirname, "../data/medications.json");
+  if (!fs.existsSync(medicationsPath)) {
+    return res
+      .status(404)
+      .json({ error: "No se encontró el archivo de medicamentos." });
+  }
+  try {
+    const data = fs.readFileSync(medicationsPath, "utf8");
+    const medications = data ? JSON.parse(data) : [];
+    return res.json(medications);
+  } catch (err) {
+    return res.status(500).json({ error: "Error al leer los medicamentos." });
+  }
+});
+
 module.exports = router;
