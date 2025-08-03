@@ -29,8 +29,9 @@ function savePatients(patients) {
 
 // Generar un id único tipo p1001, p1002, etc.
 function generatePatientId(patients) {
-  const lastId = patients.length
-    ? Math.max(...patients.map((p) => parseInt(p.id.replace("p", ""))))
+  const validPatients = patients.filter((p) => p.id && p.id.startsWith("p"));
+  const lastId = validPatients.length
+    ? Math.max(...validPatients.map((p) => parseInt(p.id.replace("p", ""))))
     : 1000;
   return `p${lastId + 1}`;
 }
