@@ -350,6 +350,52 @@ curl -X DELETE http://localhost:3000/appointments/a1
 
 ---
 
+#### 12. Reagendar una cita médica
+
+**PUT /appointments/:id/reschedule**
+
+Permite a un paciente cambiar la fecha y hora de una cita médica existente.
+
+**Parámetros (URL):**
+
+- `id`: ID de la cita médica (string)
+
+**Parámetros (JSON en el body):**
+
+- `new_date`: Nueva fecha de la cita en formato DD/MM/YYYY (string)
+- `new_time`: Nuevo horario de la cita en formato "HH:MM - HH:MM" (string, 24 horas)
+- `patient_id`: ID del paciente (string)
+- `doctor_id`: ID del doctor (string)
+
+**Ejemplo de uso:**
+
+```bash
+curl -X PUT http://localhost:3000/appointments/a1/reschedule \
+  -H "Content-Type: application/json" \
+  -d '{
+    "new_date": "12/08/2025",
+    "new_time": "10:00 - 10:30",
+    "patient_id": "p1001",
+    "doctor_id": "1a2b3c"
+  }'
+```
+
+**Respuesta exitosa:**
+
+```json
+{
+  "message": "Appointment rescheduled successfully."
+}
+```
+
+**Validaciones importantes:**
+
+- No se permite reagendar citas en fines de semana (sábado o domingo).
+- No se permite reagendar si el doctor ya tiene una cita en la nueva fecha y hora.
+- Se valida que el paciente exista.
+- Se valida que el doctor exista.
+- Se valida el formato de la nueva fecha y hora.
+
 ## Notas
 
 - Los datos de doctores, especialidades y citas se encuentran en el directorio `/data`.
