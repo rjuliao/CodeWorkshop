@@ -1,16 +1,10 @@
-# Proyecto Node.js con Express
+# API de Gestión de Citas Médicas
 
-Este es un proyecto básico de Node.js que utiliza Express para crear una API simple.
+Este proyecto es una API desarrollada con Node.js y Express para gestionar información de doctores, especialidades médicas y citas. Permite consultar disponibilidad, agendar y consultar citas, y obtener información detallada de los doctores.
 
-## Requisitos previos
+## ¿Cómo descargar, instalar y ejecutar el proyecto?
 
-- Node.js y npm deben estar instalados en tu sistema.
-
-## Instrucciones de instalación
-
-1. **Clonar el repositorio**
-
-   Clona este repositorio en tu máquina local usando el siguiente comando:
+1. **Clonar el repositorio desde GitHub**
 
    ```bash
    git clone https://github.com/rjuliao/CodeWorkshop
@@ -18,47 +12,118 @@ Este es un proyecto básico de Node.js que utiliza Express para crear una API si
 
 2. **Navegar al directorio del proyecto**
 
-   Entra en la carpeta del proyecto:
-
    ```bash
-   CodeWorkshop
+   cd CodeWorkshop
    ```
-   Abre VisualStudio Code
-   
-4. **Instalar las dependencias**
 
-   Ejecuta el siguiente comando para instalar las dependencias necesarias:
+3. **Instalar las dependencias**
 
    ```bash
    npm install
    ```
 
-## Ejecutar el servidor
+4. **Ejecutar el servidor con nodemon**
 
-Para iniciar el servidor, ejecuta el siguiente comando:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-node index.js
+## Endpoints disponibles y ejemplos de uso
+
+### 1. Obtener todos los doctores
+
+**GET /doctors/**
+
+Devuelve un arreglo JSON con todos los doctores registrados.
+
+**Ejemplo de respuesta:**
+
+```json
+[
+  {
+    "id": "1a2b3c",
+    "name": "Juan Pérez",
+    "medical_field": "CARD",
+    ...
+  },
+  ...
+]
 ```
 
-## Probar la API
+### 2. Obtener doctores por especialidad médica
 
-Abre tu navegador web y dirígete a `http://localhost:3000/doctors`.
+**GET /doctors/{nombre_especialidad}**
 
-## Actualizaciones del Proyecto
+Filtra y devuelve doctores según el nombre de la especialidad médica. El nombre debe coincidir con el registrado en `medical_fields.json`.
 
-- Se ha implementado middleware para aceptar mensajes JSON, lo que permite manejar cuerpos de solicitud en formato JSON.
-- Las rutas relacionadas con `/doctors` se han modularizado en un archivo separado: `doctors/doctors.js` para mejorar la organización del código.
-- Se han agregado datos adicionales en el directorio `/data`, incluyendo `doctors.json`, `medical_fields.json`, y `doctor_info.json`, proporcionando una estructura de datos más rica para nuestras operaciones.
+**Ejemplo de uso:**
 
-## Nuevas funcionalidades del API
+```
+GET /doctors/Cardiología
+```
 
-1. **Obtener todos los doctores**
+**Ejemplo de respuesta:**
 
-   `GET /doctors/` devuelve una lista completa de todos los doctores disponibles. Esta ruta responde con un JSON que incluye todos los registros de doctores.
+```json
+[
+  {
+    "id": "1a2b3c",
+    "name": "Juan Pérez",
+    "medical_field": "CARD",
+    ...
+  }
+]
+```
 
-2. **Obtener doctores por nombre de especialidad médica**
+### 3. Consultar disponibilidad de un doctor por fecha
 
-   `GET /doctors/{nombre_especialidad}` permite filtrar y obtener doctores según el nombre de la especialidad médica proporcionada. Asegúrate de utilizar el nombre correcto tal como está registrado en el archivo `medical_fields.json`. Devuelve un error 404 si la especialidad médica no es encontrada.
+**GET /doctors/availability/id={doctorId}/date={DD-MM-YYYY}**
 
----
+Devuelve los bloques de 30 minutos disponibles para agendar una cita con el doctor en la fecha indicada.
+
+**Ejemplo de uso:**
+
+```
+GET /doctors/availability/id=1a2b3c/date=10-08-2025
+```
+
+**Ejemplo de respuesta:**
+
+```json
+{
+  "doctor_id": "1a2b3c",
+  "date": "10-08-2025",
+  "available_slots": ["09:30", "10:00", "10:30", ...]
+}
+```
+
+### 4. Consultar disponibilidad semanal de un doctor
+
+**GET /doctors/availability/{id}**
+
+Devuelve la disponibilidad semanal del doctor por día y hora.
+
+**Ejemplo de uso:**
+
+```
+GET /doctors/availability/1a2b3c
+```
+
+**Ejemplo de respuesta:**
+
+```json
+{
+  "doctor_id": "1a2b3c",
+  "availability": {
+    "Monday": ["09:00", "09:30", ...],
+    "Tuesday": ["10:00", "10:30", ...],
+    ...
+  }
+}
+```
+
+## Notas
+
+- Los datos de doctores, especialidades y citas se encuentran en el directorio `/data`.
+- El formato de hora para los bloques de disponibilidad y citas es 24 horas.
+- Puedes modificar y ampliar los endpoints según las necesidades del proyecto.
